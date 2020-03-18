@@ -24,6 +24,11 @@ lint-dockerfile:
     GIT_SUBMODULE_STRATEGY: normal
     BUILD_CONTEXT: ${SUBMODULE_PATH}
 
+container_scanning:
+  variables:
+    GIT_SUBMODULE_STRATEGY: normal
+    DOCKERFILE_PATH: ${SUBMODULE_PATH}/Dockerfile
+
 .docker-tag-dockerhub:
   variables:
     SOURCE_IMAGE_NAME: ${CI_PROJECT_NAMESPACE}/nfs-server
