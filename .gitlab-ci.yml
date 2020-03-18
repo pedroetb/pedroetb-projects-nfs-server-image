@@ -11,6 +11,19 @@ stages:
   - package
   - post-package
 
+variables:
+  SUBMODULE_PATH: docker-nfs-server
+
+lint-dockerfile:
+  variables:
+    GIT_SUBMODULE_STRATEGY: normal
+    DOCKERFILE_PATH: ${SUBMODULE_PATH}/Dockerfile
+
+.docker-build:
+  variables:
+    GIT_SUBMODULE_STRATEGY: normal
+    BUILD_CONTEXT: ${SUBMODULE_PATH}
+
 .docker-tag-dockerhub:
   variables:
     SOURCE_IMAGE_NAME: ${CI_PROJECT_NAMESPACE}/nfs-server
