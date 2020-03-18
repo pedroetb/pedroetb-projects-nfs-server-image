@@ -1,0 +1,16 @@
+include:
+  - project: 'pedroetb-projects/gitlab-ci-templates'
+    ref: master
+    file: '/packaging.yml'
+  - project: 'pedroetb-projects/gitlab-ci-templates'
+    ref: master
+    file: '/packaging-arm.yml'
+
+stages:
+  - pre-package
+  - package
+  - post-package
+
+.docker-tag-dockerhub:
+  variables:
+    SOURCE_IMAGE_NAME: ${CI_PROJECT_NAMESPACE}/nfs-server

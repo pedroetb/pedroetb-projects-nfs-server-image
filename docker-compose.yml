@@ -1,0 +1,10 @@
+version: '2.4'
+
+services:
+  nfs-server:
+    image: ${IMAGE_NAME:-pedroetb/nfs-server}:${IMAGE_TAG:-latest}
+    build:
+      context: ${BUILD_CONTEXT:-docker-nfs-server}
+      dockerfile: ${DOCKERFILE:-Dockerfile}
+      args:
+        BUILD_FROM:
