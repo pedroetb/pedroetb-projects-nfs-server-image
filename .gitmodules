@@ -1,0 +1,3 @@
+[submodule "docker-nfs-server"]
+	path = docker-nfs-server
+	url = https://github.com/ehough/docker-nfs-server.git
