@@ -1,33 +1,27 @@
 include:
   - project: 'pedroetb-projects/gitlab-ci-templates'
     ref: master
-    file: '/packaging.yml'
+    file: '/packaging-docker/docker-build.yml'
   - project: 'pedroetb-projects/gitlab-ci-templates'
     ref: master
-    file: '/packaging-arm.yml'
+    file: '/packaging-docker/docker-build-arm.yml'
 
 stages:
   - pre-package
   - package
   - post-package
 
-variables:
-  SUBMODULE_PATH: docker-nfs-server
-
 lint-dockerfile:
   variables:
     GIT_SUBMODULE_STRATEGY: normal
-    DOCKERFILE_PATH: ${SUBMODULE_PATH}/Dockerfile
 
 .docker-build:
   variables:
     GIT_SUBMODULE_STRATEGY: normal
-    BUILD_CONTEXT: ${SUBMODULE_PATH}
 
 container_scanning:
   variables:
     GIT_SUBMODULE_STRATEGY: normal
-    DOCKERFILE_PATH: ${SUBMODULE_PATH}/Dockerfile
 
 .docker-tag-dockerhub:
   variables:
