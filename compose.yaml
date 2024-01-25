@@ -2,7 +2,10 @@ services:
   nfs-server:
     image: ${IMAGE_NAME:-pedroetb/nfs-server}:${IMAGE_TAG:-latest}
     build:
-      context: ${BUILD_CONTEXT:-docker-nfs-server}
+      context: ${BUILD_CONTEXT:-.}
       dockerfile: ${DOCKERFILE:-Dockerfile}
       args:
-        BUILD_FROM:
+        ALPINE_TAG:
+        BASH_VERSION:
+        LIBCAP_VERSION:
+        NFS_UTILS_VERSION:

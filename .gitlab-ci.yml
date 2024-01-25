@@ -11,15 +11,7 @@ stages:
   - package
   - post-package
 
-lint-dockerfile:
-  variables:
-    GIT_SUBMODULE_STRATEGY: normal
-
 .docker-build:
-  variables:
-    GIT_SUBMODULE_STRATEGY: normal
-
-container_scanning:
   variables:
     GIT_SUBMODULE_STRATEGY: normal
 
