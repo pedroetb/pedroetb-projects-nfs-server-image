@@ -2,9 +2,6 @@ include:
   - project: 'pedroetb-projects/gitlab-ci-templates'
     ref: master
     file: '/packaging-docker/docker-build.yml'
-  - project: 'pedroetb-projects/gitlab-ci-templates'
-    ref: master
-    file: '/packaging-docker/docker-build-arm.yml'
 
 stages:
   - pre-package

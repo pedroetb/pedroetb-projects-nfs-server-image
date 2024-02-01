@@ -2,6 +2,8 @@ ARG ALPINE_TAG
 
 FROM alpine:${ALPINE_TAG}
 
+LABEL maintainer="pedroetb@gmail.com"
+
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 EXPOSE 2049
